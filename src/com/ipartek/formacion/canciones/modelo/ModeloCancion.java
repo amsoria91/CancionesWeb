@@ -8,10 +8,12 @@ public interface ModeloCancion {
 
 	ArrayList<Cancion> getAll();
 
-	Cancion getByPosicion(int pos);
+	Cancion getById(long id);
 
-	boolean eliminar(int pos);
+	boolean delete(long id);
 
 	boolean insert(Cancion c);
+	
+	boolean update(Cancion c,long id);
 
 }
