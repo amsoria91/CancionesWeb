@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.canciones.modelo.ModeloCancionImpl;
 import com.ipartek.formacion.canciones.pojo.Cancion;
 
 /**
@@ -27,6 +28,8 @@ public class CrearController extends HttpServlet {
 
 		// recoger PARAMETROS del formulario
 
+		ModeloCancionImpl model = ModeloCancionImpl.getInstance();
+
 		String nombre = request.getParameter("nombre");
 		String artista = request.getParameter("artista");
 		String duracion = request.getParameter("duracion");
@@ -35,14 +38,26 @@ public class CrearController extends HttpServlet {
 
 		Cancion c = new Cancion(nombre, artista, duracion);
 
+		//guardamos la cancion
+		String mensajeUsuario="";
+		if(model.insert(c)) {
+			mensajeUsuario="Tenemos nueva cancion";
+		}else {
+			
+			System.out.println("Ha surgido un problema");
+			
+		}
+		//model.insert(c);
+		
 		// enviamos cancion como ATRIBUTO en la request
+		
+		request.setAttribute("listado", model.getAll());
+	//	request.setAttribute("cancion", c);
+		request.setAttribute("mensaje", mensajeUsuario);
 
-		request.setAttribute("cancion", c);
-		request.setAttribute("mensaje", "Cancion creada con exito");
+		// vamos a la listado.JSP
 
-		// vamos a la detalle.JSP
-
-		RequestDispatcher dispatch = request.getRequestDispatcher("detalle.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("listado.jsp");
 		dispatch.forward(request, response);
 
 	}

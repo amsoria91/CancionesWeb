@@ -1,6 +1,17 @@
 <%@page import="com.ipartek.formacion.canciones.pojo.Cancion"%>
 <%@page import="java.util.ArrayList"%>
 
+
+<%
+	//gestion de los mensajes para el Usuario
+	String mensaje = (String) request.getAttribute("mensaje");
+	if(mensaje!=null){
+		
+		out.print("<p>"+mensaje+"</p>");
+		
+	}
+%>
+
 <h1>Listado Canciones</h1>
 
 <ol>
@@ -24,17 +35,17 @@
 <form action="crear" method="post">
 
 	<input type="text" name="nombre" placeholder="Escribe nombre cancion"
-		required> 
-		<br> 
-		<input type="text" name="artista"
+		required>
+		 <br>
+		  <input type="text" name="artista"
 		placeholder="Escribe nombre artista" required>
 		 <br> 
 		 <input
 		type="text" name="duracion" placeholder="Escribe duracion cancion"
 		required> 
-		<br> 
-		<br> 
-		<input type="submit"
+		<br>
+		 <br> 
+		 <input type="submit"
 		value="Crear cancion nueva">
 
 
