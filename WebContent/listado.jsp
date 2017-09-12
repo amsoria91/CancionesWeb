@@ -24,10 +24,17 @@
 <form action="crear" method="post">
 
 	<input type="text" name="nombre" placeholder="Escribe nombre cancion"
-		required> <br> <input type="text" name="artista"
-		placeholder="Escribe nombre artista" required> <br> <input
+		required> 
+		<br> 
+		<input type="text" name="artista"
+		placeholder="Escribe nombre artista" required>
+		 <br> 
+		 <input
 		type="text" name="duracion" placeholder="Escribe duracion cancion"
-		required> <br> <br> <input type="submit"
+		required> 
+		<br> 
+		<br> 
+		<input type="submit"
 		value="Crear cancion nueva">
 
 

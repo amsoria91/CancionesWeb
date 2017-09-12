@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.canciones.modelo.ModeloCancionImpl;
 import com.ipartek.formacion.canciones.pojo.Cancion;
 
 /**
@@ -38,12 +39,13 @@ public class ListarController extends HttpServlet {
 
 		// Crear array con "x" canciones
 
-		ArrayList<Cancion> canciones = new ArrayList<Cancion>();
+		ModeloCancionImpl modelo = ModeloCancionImpl.getInstance();
+		ArrayList<Cancion> canciones = modelo.getAll();
 
-		canciones.add(new Cancion("cancion1", "artista1", "duracion1"));
+	/*	canciones.add(new Cancion("cancion1", "artista1", "duracion1"));
 		canciones.add(new Cancion("cancion2", "artista2", "duracion2"));
 		canciones.add(new Cancion("cancion3", "artista3", "duracion3"));
-		canciones.add(new Cancion("cancion4", "artista4", "duracion4"));
+		canciones.add(new Cancion("cancion4", "artista4", "duracion4"));*/
 
 		// pasar ATRIBUTO listado en la request para la JSP
 
